@@ -1,3 +1,1 @@
 # portfolio
-
-wb-jino

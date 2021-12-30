@@ -1,0 +1,125 @@
+@charset "utf-8";
+/*
+Description: Main styles
+*/
+
+/*--------------------------
+[Table Of Contents]
+
+1. Media Width 1024px
+-----------------------*/
+
+/*---------------------*/
+/* 1. Media Width 1024px
+/*---------------------*/
+@media only screen and (max-width : 1024px) {
+	.container{padding:0 5%;}
+	.main-content .mc-section9 .container .col:first-child{padding-right:10%;}
+}
+/*---------------------*/
+/* 1. Media Width 1000px
+/*---------------------*/
+@media only screen and (max-width : 1000px) {
+	.header .header-inner{justify-content:space-between;}
+	.header .header-inner .logo a{padding:12px 0;}
+	.header .header-inner .logo a img{height:24px;}
+	.header .header-inner .nav,
+	.header .header-inner .social-group{display:none;}
+	.header .header-inner .snb-btn{border:none;}
+	.snb .snb-close-btn{display:block;}
+	.main{padding-top:48px;}
+	.header .header-inner .snb-btn button.open .lines-button:after,
+	.header .header-inner .snb-btn button.open .lines-button .lines:before,
+	.header .header-inner .snb-btn button.open .lines-button .lines:after,
+	.side-widget-open .header .header-inner .logo{
+		-webkit-transform: none;
+		-moz-transform: none;
+		-ms-transform: none;
+		-o-transform: none;
+		transform: none;
+	}
+	
+}
+/*---------------------*/
+/* 1. Media Width 768px
+/*---------------------*/
+@media only screen and (max-width : 768px) {
+	.main-content .mc-section1,
+	.investors-section1{padding:40px 0;}
+	.main-content .mc-section1 .container,
+	.main-content .mc-section3 .container,
+	.main-content .mc-section4 .container,
+	.main-content .mc-section5 .service-list,
+	.main-content .mc-section8 .info-wrap,
+	.main-content .mc-section9 .container,
+	.investors-section1 .container,
+	.investors-section2 .container,
+	.investors-section3 .financial-list{flex-direction:column;}
+	.main-content .mc-section2 .container,
+	.main-content .mc-section3 .container:last-child,
+	.team-about-wrap .container{flex-direction:column-reverse;}
+	.main-content .mc-section1 .col,
+	.main-content .mc-section2 .col,
+	.main-content .mc-section3 .col,
+	.main-content .mc-section4 .col,
+	.main-content .mc-section8 .info-wrap .col,
+	.main-content .mc-section9 .container .col,
+	.team-about-wrap .container .col,
+	.investors-section1 .col,
+	.investors-section1 .col.img-wrap .inner .img-area,
+	.investors-section2 .col,
+	.investors-section3 .financial-list li{width:100% !important;}
+	.main-content .mc-section1 .col.img-wrap .inner .img-area{width:100%;}
+	.main-content .mc-section2 .col:last-child{margin-bottom:20px;}
+	.main-content .mc-section3 .col.img-wrap{padding:0;margin-bottom:20px;}
+	.main-content .mc-section3 .col.img-wrap .inner,
+	.main-content .mc-section8 .info-wrap .col,
+	.main-content .mc-section9 .container .col:first-child{padding:0;}
+	.main-content .mc-section4 .col.img-wrap .img-area{margin:0 0 30px 0;width:100%;}
+	.main-content .mc-section4 .process-list{padding-right:0;}
+	.main-content .mc-section5 .service-list .service-list-box{margin-bottom:50px;}
+	.main-content .mc-section7 .container{padding:0 5%;}
+	.main-content .mc-section8 .info-wrap{margin:0;}
+	.main-content .mc-section9 .container .col .mc-tit{text-align:center;}
+	.footer .footer-content h3{font-size:40px;line-height:50px;}
+	.team-banner .banner-tit{font-size:38px;line-height:48px;}
+	.team-member-list .team-member{width:50%;}
+	.investors-section3 .financial-list{margin:0;}
+	.investors-section3 .financial-list li{margin:0 0 20px;}
+	.investors-section5 .video-list{flex-wrap: wrap;}
+	.investors-section5 .video-list .video-list-item,
+	.investors-section6 .tab-contents .tab-panel ul li{margin-bottom:30px;width:50%;}
+}
+/*---------------------*/
+/* 1. Media Width 690px
+/*---------------------*/
+@media only screen and (max-width : 690px) {
+	.team_member_overlay .team_member_picture{display:none;}
+	.team_member_overlay .team_member_details{padding:0 10%;}
+}
+
+/*---------------------*/
+/* 1. Media Width 425px
+/*---------------------*/
+@media only screen and (max-width : 425px) {
+	.header .header-inner{padding-left:5%;}
+	.main-content .mc-tit{font-size:30px;line-height:40px;}
+	.main-content .mc-section{padding:30px 0;}
+	.main-content .mc-section1 .mc-tit,
+	.main-content .mc-section5 .mc-tit,
+	.main-content .mc-section9 .container .col .mc-tit{font-size:36px;line-height:46px;}
+	.main-content .mc-section2 .col.img-wrap .img-height{height:30vh;}
+	.main-content .mc-section2 .col{padding:0 5%;}
+	.main-content .mc-section3 .container{padding:30px 0;}
+	
+	.team-banner .banner-tit{width:100%;text-align:center;}
+	.team-member-list-wrap,
+	.team-about-wrap{padding:40px 0;}
+	.team-member-list .team-member,
+	.investors-section5 .video-list .video-list-item,
+	.investors-section6 .tab-contents .tab-panel ul li{width:100%;}
+	.team-member-list .team-member .inner{padding:0 10%;}
+	
+	.footer .footer-info .container{flex-direction:column;}
+	.footer .footer-content h3{font-size:32px;line-height:42px;}
+}

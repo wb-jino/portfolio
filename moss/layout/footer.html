@@ -1,0 +1,209 @@
+<!--footer-->
+<footer class="footer">
+    <h2 class="screen-reader-text">footer</h2>
+    <div class="footer-inner">
+        <div class="footer-content">
+            <div class="container">
+                <h3 data-aos="fade-up" data-aos-delay="500">Take the guesswork out of optimizing your health</h3>
+                <p data-aos="fade-up" data-aos-delay="700">Offering personalized health, anti-aging and wellness products guided by genomic, microbiome, and epigenetic data</p>
+            </div>
+        </div>
+        <div class="footer-info">
+            <div class="container" data-aos="fade-up" data-aos-delay="900">
+                <div class="col">
+                    <address>
+                        <h4 class="foot-tit">Contact Us</h4>
+                        <p><a href="" class="link_text">karl@mossgenomics.com</a></p>
+                        <p><a href="" class="link_text">michellekira@mossgenomics.com</a></p>
+                    </address>
+                </div>
+                <div class="col">
+                    <h4 class="foot-tit">Connect</h4>
+                    <ul class="foot-sns">
+                        <li><a href="" class="link_text">Instagram</a></li>
+                        <li><a href="" class="link_text">Linkedin</a></li>
+                        <li><a href="" class="link_text">Twitter</a></li>
+                        <li><a href="" class="link_text">TikTok</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--//footer-->
+
+<aside class="snb">
+    <h2 class="screen-reader-text">side menu bar</h2>
+    <div class="snb-inner">
+        <a class="snb-close-btn" href="#">
+            <span class="screen-reader-text">Close Menu</span>
+            <i class="fas fa-times"></i>
+        </a>
+        <nav class="nav">
+            <ul class="menu">
+                <li><a href="./">Home</a></li>
+                <li><a href="./team.html">Team</a></li>
+                <li><a href="./investors.html">Investors</a></li>
+            </ul>
+        </nav>
+        <address>
+            <h3>Contact</h3>
+            <p>
+                <a href="mailto:karl@mossgenomics.com" target="_blank" rel="noopener">karl@mossgenomics.com</a><br>
+                <a href="mailto:michellekira@mossgenomics.com" target="_blank" rel="noopener">michellekira@mossgenomics.com</a>
+            </p>
+        </address>
+    </div>
+</aside>
+</div>
+</body>
+<script>
+    $(document).ready(function(){
+
+        AOS.init({
+            duration: 1000,
+        });
+
+        $('body').on('click', '.snb-btn button', function(){
+            if($(this).hasClass('closed')){
+                $(this).addClass('open');
+                $(this).removeClass('closed');
+                $('body').addClass('side-widget-open');
+                $('body').removeClass('side-widget-closed')
+
+            }else{
+                $(this).addClass('closed');
+                $(this).removeClass('open');
+                $('body').addClass('side-widget-closed');
+                $('body').removeClass('side-widget-open');
+            }
+        });
+
+        $('body').on('click', '.snb-close-btn', function(){
+            $('.snb-btn button').addClass('closed');
+            $('.snb-btn button').removeClass('open');
+            $('body').addClass('side-widget-closed');
+            $('body').removeClass('side-widget-open');
+        });
+
+        $(window).scroll(function(){
+            smallNav();
+        });
+
+        function smallNav() {
+
+            var $offset          = $(window).scrollTop(),
+                $windowWidth         = $(window).width(),
+                $scrollTriggerOffset = 30;
+
+            if ($offset > $scrollTriggerOffset && $windowWidth >= 1000 ) {
+                // Add small nav class.
+                $('.header').addClass('small-nav');
+            }else{
+                $('.header').removeClass('small-nav');
+            }
+
+        }
+
+        $('body').on('click', '.team-member', function () {
+
+            if ($('.team_member_overlay').length > 0) {
+                return;
+            }
+
+            var $teamMemberMeta       = $(this).find('.nectar_team_bio').text(),
+                $teamMemberTitle      =  $(this).find('.team-meta h4').text(),
+                $teamMemberImg        = ($(this).find('.nectar_team_bio_img[data-img-src]').length > 0) ? $(this).find('.nectar_team_bio_img').attr('data-img-src') : '',
+                $teamName             = '<div class="title">' + $teamMemberTitle + '</div><h2>' + $(this).find('.team-meta h3').text() + '</h2>';
+
+            $('body').append('<div class="team_member_overlay"><div class="inner-wrap"><div class="team_member_details"><div class="bio-inner"><span class="mobile-close"></span>'+ $teamName +'<div class="team-desc">' + $teamMemberMeta + '</div></div></div><div class="team_member_picture"><div class="team_member_image_bg_cover"></div><div class="team_member_picture_wrap"><div class="team_member_image"></div></div></div></div></div>');
+
+            if ($teamMemberImg.length > 0) {
+
+                // Fade in img on load
+                var teamTmpImg = new Image();
+                teamTmpImg.src = $teamMemberImg;
+
+                teamTmpImg.onload = function () {
+                    $('.team_member_overlay .team_member_image').css('opacity', '1');
+                };
+                $('.team_member_overlay .team_member_image').css({
+                    'background-image': 'url("' + $teamMemberImg + '")'
+                });
+
+                // Transition in
+                setTimeout(function () {
+                    $('.team_member_overlay').addClass('open').addClass('animating');
+                }, 100);
+
+                setTimeout(function () {
+                    $('.team_member_overlay').removeClass('animating');
+                }, 500);
+            }
+
+        });
+
+        // Close click event
+        $('body').on('click', '.team_member_overlay', function () {
+
+            if (!$(this).hasClass('animating')) {
+
+                $('.team_member_overlay').removeClass('open');
+
+                setTimeout(function () {
+
+                    $('.team_member_overlay').remove();
+
+                }, 820);
+            }
+        });
+
+        $('.news-slider').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            arrows: false,
+            dots: true,
+            responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    infinite: true
+                }
+
+            }, {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    dots: true
+                }
+
+            }, {
+                breakpoint: 300,
+                settings: "unslick" // destroys slick
+
+            }]
+        });
+
+        $('body').on('click', '.tab-nav li a', function(e){
+            e.preventDefault();
+            var tabCont = $(this).attr('href');
+
+            $('.tab-nav li a').removeClass('active-tab');
+            $(this).addClass('active-tab');
+            $('.tab-panel').hide();
+            $(tabCont).fadeIn();
+        });
+
+
+        $('.magnific-popup').magnificPopup({
+            disableOn: 700,
+            type: 'iframe',
+            mainClass: 'mfp-zoom-in',
+            removalDelay: 400,
+            preloader: false,
+            fixedContentPos: false
+        });
+
+    });
+</script>
+</html>

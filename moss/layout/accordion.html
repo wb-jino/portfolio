@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        .clearfix:after {
+            visibility: hidden;
+            display: block;
+            font-size: 0;
+            content: " ";
+            clear: both;
+            height: 0;
+        }
+
+        body {
+            margin: 1rem;
+            background-color: honeydew;
+            font-family: Helvetica, Arial, sans-serif;
+            color: #888;
+        }
+
+        .dotless {
+            list-style: none;
+        }
+
+        .page-title {
+            text-align: center;
+            margin: 2rem;
+        }
+
+        .dropdown-container {
+            max-width: 800px;
+            min-width: 300px;
+            margin: 1rem auto;
+            border: 1px solid #ccc;
+            background-color: white;
+            color: #888;
+            overflow: hidden;
+        }
+
+        .dropdown-container {
+            background-color: white;
+        }
+
+        .dropdown-container header {
+            cursor: pointer;
+            font-size: 0.6rem;
+            padding: 1rem;
+            background-color: mediumspringgreen;
+            color: white;
+            transition: background-color 350ms ease-in-out;
+        }
+
+        .dropdown-container.open header {
+            background-color: springgreen;
+        }
+
+        .dropdown-container h1 {
+            float: left;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        .dropdown-container .expand {
+            float: right;
+            transform: rotate(45deg);
+            font-size: 1.8em;
+            transition: transform 350ms ease-in-out;
+        }
+
+        .dropdown-container.open .expand{
+            transform: rotate(0);
+        }
+
+
+        .dropdown-container article {
+            max-height: 0px;
+            overflow: hidden;
+            line-height: 1.6;
+            transition: max-height 350ms ease-in-out;
+        }
+
+        /* padding can't be on article element because it won't collapse properly, add wrapper around contents */
+        .dropdown-container .article-inner {
+            padding: 1rem;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<h1 class="page-title">FAQs</h1>
+
+<div class="dropdown-container">
+    <header class="clearfix">
+        <h1>Question 1</h1>
+        <figure class="expand"><i class="fa fa-close"></i></figure>
+    </header>
+    <article>
+        <div class="article-inner">
+            <ul class="dotless">
+                <li>The</li>
+                <li>Quick</li>
+                <li>Brown</li>
+                <li>Fox</li>
+                <li>Lorem</li>
+                <li>Ipsum</li>
+            </ul>
+        </div>
+    </article>
+</div>
+
+<div class="dropdown-container">
+    <header class="clearfix">
+        <h1>Question 2</h1>
+        <figure class="expand"><i class="fa fa-close"></i></figure>
+    </header>
+    <article>
+        <div class="article-inner">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis expedita quia at delectus, quo necessitatibus iste vel deserunt velit magnam alias dicta similique. Eum doloribus voluptatum placeat magnam architecto laboriosam, eius mollitia pariatur tempore iure, earum labore dolore quis sequi ex ullam, facere modi perspiciatis fuga quaerat ipsam. Sit accusamus, iusto commodi, hic dolorum totam sed pariatur debitis in nam rerum. Minus impedit assumenda ipsam magni facere culpa optio quam saepe voluptate ducimus excepturi facilis dolore omnis quaerat, labore non, molestias amet nostrum cumque qui fuga nihil unde commodi. Unde ullam iusto magnam cumque repellendus architecto cupiditate vitae necessitatibus, amet aspernatur ipsum illo itaque fugiat commodi voluptatibus, aperiam molestiae laborum a quibusdam distinctio accusamus deleniti voluptates maxime eligendi. Molestiae, explicabo? Atque, at, iusto? Officia libero dignissimos quod minus sit soluta explicabo quae nesciunt tempora omnis, expedita dolorem maxime unde quia nam, sed quidem iure eius! Voluptates aliquam error, voluptas praesentium.</p>
+        </div>
+    </article>
+</div>
+</body>
+
+<script>
+    var headers = document.querySelectorAll('.dropdown-container header');
+
+    for(var i = 0; i < headers.length; i++) {
+        headers[i].addEventListener('click', openCurrAccordion);
+    }
+
+    //Use this as the callback if you would like multiple dropdowns to be open
+    function openAccordion(e) {
+        var parent = this.parentElement;
+        var article = this.nextElementSibling;
+
+        if (!parent.classList.contains('open')) {
+            parent.classList.add('open');
+            article.style.maxHeight = article.scrollHeight + 'px';
+        }
+        else {
+            parent.classList.remove('open');
+            article.style.maxHeight = '0px';
+        }
+    }
+
+    //Use this as the callback if you would like no more than one dropdown to be open
+    function openCurrAccordion(e) {
+        for(var i = 0; i < headers.length; i++) {
+            var parent = headers[i].parentElement;
+            var article = headers[i].nextElementSibling;
+
+            if (this === headers[i] && !parent.classList.contains('open')) {
+                parent.classList.add('open');
+                article.style.maxHeight = article.scrollHeight + 'px';
+            }
+            else {
+                parent.classList.remove('open');
+                article.style.maxHeight = '0px';
+            }
+        }
+    }
+
+    //Notes:
+    /* Adding the 'open' class to the dropdown allows us to create
+     * easier stylings for the different components of the dropdown.
+     * It basically acts as a way to style based on the state (open/closed).
+     * The maxHeight style transition is the base functionality.
+     *
+     * Change the callback in line 4 to either openCurrAccordion or openAccordion
+     * to see the two different behaviors commented above each function
+     */
+
+
+    //More Advanced Notes:
+    /* If you had a nav menu with defined heights you could use the checkbox trick
+     * common with mobile nav menus. However, height cannot be transitioned so we
+     * use max-height. In addition, transitioning max-height to a percentage doesn't
+     * function properly, we need to use javascript to find the height and set it as
+     * a pixel value. If you have a pre-determined height for your dropdowns, you
+     * could implement a version without javascript. Javascript does allow us a
+     * little more flexibility in this instance.
+     */
+</script>
+</html>

@@ -301,6 +301,7 @@
         var Item = function(content) {
             this.content = content;
         };
+
         Item.prototype.finished = false;
 
         var addItem = function(content) {
@@ -406,7 +407,7 @@
                         '<li class="to-do-list__item" id="item-'+ i +'">' +
                         '<div class="item__content">'+item.content+'</div>' +
                         '<div class="item__action">' +
-                        '<i class="fa fa-trash" aria-hidden="true"></i>' +
+                        '<i class="fa fa-trash" aria-hidden="true">X</i>' +
                         '<input type="checkbox">' +
                         '</div>' +
                         '</li>';
@@ -416,7 +417,7 @@
                         '<li class="to-do-list__item" id="item-'+ i +'">' +
                         '<div class="item__content">'+item.content+'</div>' +
                         '<div class="item__action">' +
-                        '<i class="fa fa-trash" aria-hidden="true"></i>' +
+                        '<i class="fa fa-trash" aria-hidden="true">X</i>' +
                         '<input type="checkbox" checked>' +
                         '</div>' +
                         '</li>';

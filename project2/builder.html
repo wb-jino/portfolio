@@ -1,0 +1,376 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>DNA APP CENTER</title>
+
+	<link rel="stylesheet" href="opensource/webfont/webfont-local.css">
+	<link rel="stylesheet" href="opensource/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="opensource/jquery-ui-1.12.1.custom/jquery-ui.min.css">	
+	<link rel="stylesheet" href="opensource/intro.js-2.7.0/introjs.css">	
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	
+</head>
+<body>
+	<div class="dac_wrap">
+		<!-- header -->
+		<header class="dac_header">
+			<button class="snb_toggle"  id="step1"><i class="fa fa-bars" aria-hidden="true"></i></button>
+			<div class="util_wrap" id="step2">
+				<div class="user">
+					<a href="" title="" class="dropdown" data-hide="body_hide"><i class="fa fa-user-o" aria-hidden="true"></i></a>
+					<ul class="user_menu">
+						<li><a href="" title="">Proile</a></li>
+						<li><a href="" title="">Setting</a></li>
+						<li><a href="" title="">Help</a></li>
+						<li><a href="" title="">Logout</a></li>
+					</ul>
+				</div>
+				<div class="msg">
+					<a href="" title="" class="dropdown" data-hide="body_hide"><i class="fa fa-envelope-o" aria-hidden="true"></i><span class="badge">5</span></a>
+					<ul class="msg_list">
+						<li><a href="" title="">msg1</a></li>
+						<li><a href="" title="">msg2</a></li>
+						<li><a href="" title="">msg3</a></li>
+						<li><a href="" title="">msg4</a></li>
+						<li class="more_btn"><a href="" title="">See All Alerts</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<!-- snb -->
+		<aside class="dac_snb">
+			<div class="container">
+				<h1 class="logo"><a href="" title=""><i class="fa fa-cubes" aria-hidden="true"></i> <span>DNA APP CENTER</span></a></h1>
+				<div class="user_profile">
+					<div class="profile_pic"><img src="" alt=""></div>
+					<div class="profile_info">
+						<span class="txt">Welcome</span>
+						<span class="name">Jin Ho</span>
+					</div>
+				</div>
+				<nav class="snb_nav">
+					<ul class="nav_menu"  id="step3">
+						<li>
+							<a href="#" title=""><i class="fa fa-home"></i>기본정보 입력<span class="fa fa-chevron-down"></span></a>
+							<ul class="child_menu">
+								<li><a href="builder.html" title="">menu</a></li>
+					 			<li><a href="#" title="">menu</a></li>
+								<li><a href="#" title="">menu</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" title=""><i class="fa fa-edit"></i>App 디자인<span class="fa fa-chevron-down"></span></a>
+							<ul class="child_menu">
+								<li><a href="#" title="">menu</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" title=""><i class="fa fa-desktop"></i>SNP 타입 설정<span class="fa fa-chevron-down"></span></a>
+							<ul class="child_menu">
+								<li><a href="#" title="">menu</a></li>
+							</ul>
+						</li>
+						<li><a href="#" title=""><i class="fa fa-table"></i>연산 결과 설정<span class="fa fa-chevron-down"></span></a></li>
+						<li><a href="#" title=""><i class="fa fa-clone"></i>완료<span class="fa fa-chevron-down"></span></a></li>
+					</ul>
+				</nav>
+				<div class="snb_footer">
+					<ul class="tool_list">
+						<li><a href="" title=""><i class="fa fa-cog" aria-hidden="true"></i></a></li>
+						<li><a href="" title=""><i class="fa fa-arrows-alt" aria-hidden="true"></i></a></li>
+						<li><a href="" title=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a></li>
+						<li><a href="" title=""><i class="fa fa-power-off" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</aside>
+
+		<!-- body -->
+		<div class="dac_body">
+
+			<div id="dac" class="contents">
+				<!-- cont_header -->
+				<div class="cont_header" id="step4">
+					<div class="header_top">
+						<h2><i class="fa fa-pencil-square-o" aria-hidden="true"></i>DNA App Reporting Builder</h2>
+					</div>
+					<div class="header_tool">
+						<ul class="tool_list">
+							<li id="builder_step1"><button class="el_add_btn"><i class="fa fa-plus" aria-hidden="true"></i> Add Element</button></li>
+							<li id="builder_step2"><button id="builder_save_btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Saved Element</button></li>
+							<li id="builder_step3"><button id="builder_preview_btn"><i class="fa fa-search-plus" aria-hidden="true"></i> Preview</button></li>
+							<li><button id="test_btn"><i class="fa fa-search-plus" aria-hidden="true"></i> test</button></li>
+							<li><button class="guide_btn">GUIDE</button></li>
+						</ul>
+					</div>
+				</div>
+				<!-- // cont_header -->
+				
+				<!-- cont_body -->
+				<div class="cont_body report_wrap " id="builder_step4">
+					<div class="container sortable_wrap">
+
+					</div>				
+				</div>
+				<!-- //cont_body -->
+			</div>
+			
+
+			<!-- add element layer popup -->
+			<div class="element_add_wrap">
+				<div class="container">
+					<div class="element_add_head">
+						<ul class="element_tabs_nav tab_nav">
+							<li class="active"><a href="#tab_all" title="">All</a></li>
+							<li><a href="#tab_layout" title="">Layout</a></li>
+							<li><a href="#tab_media" title="">Media</a></li>
+							<li><a href="#tab_ui" title="">U.I</a></li>
+						</ul>
+						<button class="element_close"><i class="fa fa-times" aria-hidden="true"></i></button>
+					</div>
+					<div class="element_tabs_content">
+						<ul id="tab_all" class="tabs_content">
+							<li>
+								<div class="el_txt"><i class="fa fa-window-maximize" aria-hidden="true"></i><span>FrontPage</span></div>
+								<div class="el_preview"><img src="" alt=""></div>
+								<a href="" title="" class="add_btn" data-option="Front-page">Add</a>
+							</li>
+							<li>
+								<div class="el_txt"><i class="fa fa-window-maximize" aria-hidden="true"></i><span>Page</span></div>
+								<div class="el_preview"><img src="" alt=""></div>
+								<a href="" title="" class="add_btn" data-option="page">Add</a>
+							</li>
+							<li>
+								<div class="el_txt"><i class="fa fa-window-maximize" aria-hidden="true"></i><span>End Page</span></div>
+								<div class="el_preview"><img src="" alt=""></div>
+								<a href="" title="" class="add_btn" data-option="End-Page">Add</a>
+							</li>
+							<li>
+								<div class="el_txt"><i class="fa fa-header" aria-hidden="true"></i><span>Title h1</span></div>
+								<div class="el_preview"><img src="" alt=""></div>
+								<a href="" title="" class="add_btn" data-option="title-h1">Add</a>
+							</li>
+							<li>
+								<div class="el_txt"><i class="fa fa-header" aria-hidden="true"></i><span>Title h2</span></div>
+								<div class="el_preview"><img src="" alt=""></div>
+								<a href="" title="" class="add_btn" data-option="title-h2">Add</a>
+							</li>
+							<li>
+								<div class="el_txt"><i class="fa fa-header" aria-hidden="true"></i><span>Title h3</span></div>
+								<div class="el_preview"><img src="" alt=""></div>
+								<a href="" title="" class="add_btn" data-option="title-h3">Add</a>
+							</li>
+							<li>
+								<div class="el_txt"><i class="fa fa-header" aria-hidden="true"></i><span>Title h4</span></div>
+								<div class="el_preview"><img src="" alt=""></div>
+								<a href="" title="" class="add_btn" data-option="title-h4">Add</a>
+							</li>
+							<li>
+								<div class="el_txt"><i class="fa fa-header" aria-hidden="true"></i><span>Title h5</span></div>
+								<div class="el_preview"><img src="" alt=""></div>
+								<a href="" title="" class="add_btn" data-option="Title-h5">Add</a>
+							</li>
+							<li>
+								<div class="el_txt"><i class="fa fa-header" aria-hidden="true"></i><span>Title h6</span></div>
+								<div class="el_preview"><img src="" alt=""></div>
+								<a href="" title="" class="add_btn" data-option="Title-h6">Add</a>
+							</li>
+							<li>
+								<div class="el_txt"><i class="fa fa-text-width" aria-hidden="true"></i><span>Text Block Type1</span></div>
+								<div class="el_preview"><img src="" alt=""></div>
+								<a href="" title="" class="add_btn" data-option="text-block-type1">Add</a>
+							</li>
+							<li>
+								<div class="el_txt"><i class="fa fa-text-width" aria-hidden="true"></i><span>Text Block Type2</span></div>
+								<div class="el_preview"><img src="" alt=""></div>
+								<a href="" title="" class="add_btn" data-option="text-block-type2">Add</a>
+							</li>
+							<li>
+								<div class="el_txt"><i class="fa fa-text-width" aria-hidden="true"></i><span>Text Block Type3</span></div>
+								<div class="el_preview"><img src="" alt=""></div>
+								<a href="" title="" class="add_btn" data-option="Text-Block-Type3">Add</a>
+							</li>
+							<li>
+								<div class="el_txt"><i class="fa fa-newspaper-o" aria-hidden="true"></i><span>Content Group Type1</span></div>
+								<div class="el_preview"><img src="" alt=""></div>
+								<a href="" title="" class="add_btn" data-option="Content-Group-Type1">Add</a>
+							</li>
+							<li>
+								<div class="el_txt"><i class="fa fa-newspaper-o" aria-hidden="true"></i><span>Content Group Type2</span></div>
+								<div class="el_preview"><img src="" alt=""></div>
+								<a href="" title="" class="add_btn" data-option="Content-Group-Type2">Add</a>
+							</li>
+							<li>
+								<div class="el_txt"><i class="fa fa-picture-o" aria-hidden="true"></i><span>Image</span></div>
+								<div class="el_preview"><img src="" alt=""></div>
+								<a href="" title="" class="add_btn" data-option="image">Add</a>
+							</li>
+							<li>
+								<div class="el_txt"><i class="fa fa-align-justify" aria-hidden="true"></i><span>Line</span></div>
+								<div class="el_preview"><img src="" alt=""></div>
+								<a href="" title="" class="add_btn" data-option="line">Add</a>
+							</li>
+							<li>
+								<div class="el_txt"><i class="fa fa-th-large" aria-hidden="true"></i><span>block</span></div>
+								<div class="el_preview"><img src="" alt=""></div>
+								<a href="" title="" class="add_btn" data-option="block">Add</a>
+							</li>
+						</ul>
+						<ul id="tab_layout" class="tabs_content">
+							<li><a href="" title="" class="add_btn">1</a></li>
+							<li><a href="" title="" class="add_btn">2</a></li>
+							<li><a href="" title="" class="add_btn">3</a></li>
+							<li><a href="" title="" class="add_btn">4</a></li>
+							<li><a href="" title="" class="add_btn">5</a></li>
+							<li><a href="" title="" class="add_btn">6</a></li>
+						</ul>
+						<ul id="tab_media" class="tabs_content">
+							<li><a href="" title="" class="add_btn">1</a></li>
+							<li><a href="" title="" class="add_btn">2</a></li>
+							<li><a href="" title="" class="add_btn">3</a></li>
+							<li><a href="" title="" class="add_btn">4</a></li>
+						</ul>
+						<ul id="tab_ui" class="tabs_content">
+							<li><a href="" title="" class="add_btn">1</a></li>
+							<li><a href="" title="" class="add_btn">2</a></li>
+							<li><a href="" title="" class="add_btn">3</a></li>
+							<li><a href="" title="" class="add_btn">4</a></li>
+							<li><a href="" title="" class="add_btn">5</a></li>
+							<li><a href="" title="" class="add_btn">6</a></li>
+							<li><a href="" title="" class="add_btn">7</a></li>
+							<li><a href="" title="" class="add_btn">8</a></li>
+							<li><a href="" title="">9</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 미리보기 레이어 팝업 -->
+			<div class="preview_pop">
+				<div class="preview_top">
+					<span class="preview_tit">Preview</span>
+					<button class="preview_close"><i class="fa fa-times" aria-hidden="true"></i></button>
+				</div>
+				<div class="preview_area">
+					<!-- 미리보기 내용 -->
+				</div>
+			</div>
+
+			<div class="fixed_bg"></div> <!-- element add 모달시 background -->
+
+		</div>
+
+		<!-- footer -->
+		<footer class="dac_footer">
+			<p>footer</p>
+		</footer>
+		
+		<!-- <div id="nyn_top_btn"> -->
+		   <!-- <button type="button">TOP</button> -->
+		<!-- </div> -->
+
+	</div>
+	
+	<div class="dac_translated_objects" data-spb-delete-element-header="Delete Element." data-spb-save-template-header="Save Template"></div>
+
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="opensource/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="opensource/intro.js-2.7.0/minified/intro.min.js"></script>
+	<script type="text/javascript" src="opensource/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="js/builder.js"></script>
+	<!--[if lt IE 9]> 
+	<script type="text/javascript" src="opensource/html5shiv-master/dist/html5shiv.min.js"></script>
+	<script type="text/javascript" src="opensouSrce/ie7/IE9.js"></script>
+	<script type="text/javascript" src="opensource/selectivizr-1.0.2/selectivizr-min.js"></script>
+	<div id="browsehappy">
+	  <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</p>
+	  <p><strong>너무 오래된 브라우저</strong>를 사용하고 있습니다. <a href="http://browsehappy.com/" target="_blank">최신 브라우저로 업그레이드</a>해서 더 나은 웹을 경험하세요!</p>
+	</div>
+	<![endif]-->
+
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+
+			builder.init();	
+
+			function startIntro(){
+				var intro = introJs();
+				  intro.setOptions({
+					steps: [
+					  {
+						element: '#step1',
+						intro: "This is a <b>bold</b> tooltip."
+					  },
+					  {
+						element: '#step2',
+						intro: "Ok, <i>wasn't</i> that fun?",
+						position: 'right'
+					  },
+					  {
+						element: '#step3',
+						intro: 'More features, more <span style="color: red;">f</span><span style="color: green;">u</span><span style="color: blue;">n</span>.',
+						position: 'left'
+					  },
+					  {
+						element: '#step4',
+						intro: "<span style='font-family: Tahoma'>Another step with new font!</span>",
+						position: 'bottom'
+					  },
+					  {
+						element: '#step5',
+						intro: '<strong>Get</strong> it, <strong>use</strong> it.'
+					  }
+					]
+				});
+
+				intro.start();
+			}
+
+			function builderIntro(){
+				var intro = introJs();
+				  intro.setOptions({
+					steps: [
+					  {
+						element: '#builder_step1',
+						intro: "This is a <b>bold</b> tooltip."
+					  },
+					  {
+						element: '#builder_step2',
+						intro: "Ok, <i>wasn't</i> that fun?"
+					  },
+					  {
+						element: '#builder_step3',
+						intro: 'More features, more <span style="color: red;">f</span><span style="color: green;">u</span><span style="color: blue;">n</span>.'
+					  },
+					  {
+						element: '#builder_step4',
+						intro: "<span style='font-family: Tahoma'>Another step with new font!</span>",
+						position: 'top'
+					  },
+					  {
+						element: '.element_box',
+						intro: "<span style='font-family: Tahoma'>Another step with new font!</span>",
+						position: 'top'
+					  }
+					]
+				});
+				intro.start();
+			}
+
+			jQuery(".guide_btn").on("click", function(){
+				builderIntro();
+			});
+
+			//startIntro();
+		});
+
+
+	</script>
+</body>
+</html>

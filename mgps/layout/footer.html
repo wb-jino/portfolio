@@ -1,0 +1,153 @@
+    <!--footer-->
+    <footer class="footer">
+        <h2 class="screen_reader_text">footer</h2>
+        <div class="footer_inner">
+            <p>Copyright © 2022 NGENI Foundation - All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!--//footer-->
+
+    <!--mobile snb-->
+    <aside class="mb_snb">
+        <h2 class="screen_reader_text">side menu bar</h2>
+        <div class="snb_inner">
+            <a class="snb_close_btn" href="#">
+                <span class="screen_reader_text">Close Menu</span>
+                <i class="fas fa-times"></i>
+            </a>
+            <nav class="nav">
+                <ul class="menu">
+                    <li class="menu_list" role="menuitem">
+                        <a href="#sec_1">About Me</a>
+                    </li>
+                    <li class="menu_list" role="menuitem">
+                        <a href="#sec_2">My GENI Code</a>
+                    </li>
+                    <li class="menu_list" role="menuitem">
+                        <a href="#sec_3">My Geni Music</a>
+                    </li>
+                    <li class="menu_list" role="menuitem">
+                        <a href="#sec_4">My Geni Avatar</a>
+                    </li>
+                    <li class="menu_list" role="menuitem">
+                        <a href="#sec_5">My Geni PunkPixel</a>
+                    </li>
+                    <li class="menu_list" role="menuitem">
+                        <a href="#sec_6">My Geni CryptoPixel</a>
+                    </li>
+                    <li class="menu_list" role="menuitem">
+                        <a href="#sec_7">About MGPS</a>
+                    </li>
+                    <li class="menu_list" role="menuitem">
+                        <a href="#sec_8">Contact Us</a>
+                    </li>
+                </ul>
+            </nav>
+            <address>
+                <h3>Contact</h3>
+                <p>
+                    <a href="mailto:mgps@mygenomebox.com" target="_blank" rel="noopener">mgps@mygenomebox.com</a><br>
+                </p>
+            </address>
+        </div>
+    </aside>
+    <!--//mobile snb-->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+
+        document.querySelector('.snb_btn button').addEventListener('click', function () {
+            if( this.classList.contains('closed')){
+                this.classList.add('open');
+                this.classList.remove('closed');
+                document.body.classList.add('side_widget_open');
+                document.body.classList.remove('side_widget_closed');
+            }else{
+                this.classList.add('closed');
+                this.classList.remove('open');
+                document.body.classList.add('side_widget_closed');
+                document.body.classList.remove('side_widget_open');
+            }
+        });
+
+        document.querySelector('.snb_close_btn').addEventListener('click', function(e){
+            e.preventDefault();
+            document.querySelector('.snb_btn button').classList.add('closed');
+            document.querySelector('.snb_btn button').classList.remove('open');
+            document.body.classList.add('side_widget_closed');
+            document.body.classList.remove('side_widget_open');
+        });
+
+        window.addEventListener('scroll', function() {
+            smallNav();
+        });
+
+        function smallNav() {
+            var $offset              = window.scrollY,
+                $windowWidth         = window.innerWidth,
+                $scrollTriggerOffset = 30;
+
+            if ($offset > $scrollTriggerOffset && $windowWidth >= 1000 ) {
+                // Add small nav class.
+                document.querySelector('header').classList.add('small-nav');
+
+            }else{
+                document.querySelector('header').classList.remove('small-nav');
+            }
+        }
+
+    });
+
+    $(document).ready(function(){
+
+        $(window).load(function(){
+            $.scrollify({
+                section:".sec_area",
+                /*scrollSpeed: 500,*/
+                updateHash:false,
+                interstitialSection:".footer",
+                before:function(i,panels) {
+
+                    var ref = panels[i].attr("data-section-name");
+
+                    $(".pagination .active, .gnb .active, .nav .active").removeClass("active");
+                    $(".pagination, .gnb, .nav").find("a[href=\"#" + ref + "\"]").addClass("active");
+                },
+                afterRender:function() {
+                    var sec = $(".sec_area").eq($.scrollify.currentIndex()).attr("data-section-name");
+                    $(".gnb, .nav").find("a[href=\"#" + sec + "\"]").addClass("active");
+
+                    var pagination = "<ul class=\"pagination\">";
+                    var activeClass = "";
+                    $(".sec_area").each(function(i) {
+                        activeClass = "";
+                        if(i===$.scrollify.currentIndex()) {
+                            activeClass = "active";
+                        }
+
+                        pagination += "<li><a class=\"" + activeClass + "\" href=\"#" + $(this).attr("data-section-name") + "\"><span class=\"hover-text\">" + $(this).attr("data-section-txt").charAt(0).toUpperCase() + $(this).attr("data-section-txt").slice(1) + "</span></a></li>";
+                    });
+
+                    pagination += "</ul>";
+
+                    $(".wrap").append(pagination);
+                    /*
+                    Tip: The two click events below are the same:
+
+                    $(".pagination a").on("click",function() {
+                      $.scrollify.move($(this).attr("href"));
+                    });
+
+                    */
+
+                    $(".pagination a, .gnb a, .nav a").on("click",$.scrollify.move);
+                }
+            });
+        });
+
+    });
+</script>
+
+</body>
+
+</html>

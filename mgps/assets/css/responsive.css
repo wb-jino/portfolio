@@ -1,0 +1,82 @@
+/*	ex) @include transform( rotate(90deg), translate(0,9px), // ... add more transforms if you need); */
+/* ex) @include transition(background-color 1s 2s, color 2s); */
+/* ex) @include breakpoint(large){} */
+/*
+ ex)
+    // without arguments (default)
+	div {
+	   @include arrow();
+	}
+
+	// with custom arguments
+	div {
+	   @include arrow(up, 10px, #efefef);
+	}
+*/
+/*--------------------------
+[Table Of Contents]
+
+1. Media Width 1024px
+-----------------------*/
+/*---------------------*/
+/* 1. Media Width 1024px */
+/*---------------------*/
+@media only screen and (max-width: 1024px) {
+  .container {
+    padding: 0 5% !important; } }
+
+/*---------------------*/
+/* 1. Media Width 768px
+/*---------------------*/
+@media only screen and (max-width: 768px) {
+  .col_group {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: normal;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  [class^="col_"] {
+    margin: 0 !important;
+    width: 100% !important; }
+  #aboutMe .scroll-mouse {
+    position: static; }
+  .about_cont {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: reverse;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse; }
+  .header .header_inner {
+    padding-right: 10px; }
+  .header .header_inner .gnb_wrap {
+    display: none; }
+  .header .header_inner .snb_btn {
+    display: block; }
+  .main .sec_area .sec_contents .sub_tit {
+    padding-top: 40px; }
+  .pagination {
+    right: 11px; }
+  .pagination a .hover-text {
+    display: none; } }
+
+/*---------------------*/
+/* 1. Media Width 425px
+/*---------------------*/
+@media only screen and (max-width: 425px) {
+  .container {
+    padding: 0 9% !important; }
+  .main .sec_area .sec_header {
+    margin-bottom: 40px; }
+  .main .sec_area .sec_header .tit {
+    font-size: 34px; }
+  .main .sec_area .sec_header .summary {
+    font-size: 12px; }
+  .main .sec_area .sec_contents .sub_tit {
+    margin-bottom: 20px;
+    font-size: 24px; }
+  .main .sec_area .sec_contents .desc {
+    font-size: 14px; } }

@@ -159,7 +159,7 @@ var builder = function () {
 				iCnt = iCnt + 1;
 				id_num = id_num + 1;
 				jQuery.ajax({
-					type : "post",
+					type : "get",
 					url : "element/"+option+".html",
 					dataType : "html",
 					success : function(data){
